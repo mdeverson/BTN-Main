@@ -1,12 +1,13 @@
-YGTV-Main
+BTN-Main
 =========
 
-YGTV GitHub Rep for Development
+BTN GitHub Rep for Development & Testing
 
 Launched - 5/29/2014
 By: Brain Tree Media Group
 Initial Author: Matthew Everson
 Email: mdeverson@gmail.com
 
+Current Status - JW PLayer 6 Testing with AWS S3, CDN, and EC2
 
-YGTV Main Rep
+BTN Main Rep

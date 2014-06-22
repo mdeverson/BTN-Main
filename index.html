@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="videoPlayer">
+<!--
+Video Test Homepage Index File V0.1.0
+Last Edit: 6-19-2014
+Author: ME
+-->
+<head>
+<title>Young Guns TV Video Testing Site</title>
+
+<!--Angular Calls-->
+<script type="text/javascript" src="angular.js"></script>
+<script type="text/javascript" src="videotest.js"></script>
+
+<!--AWS SDK Call-->
+<script type="text/javascrip" src="aws.sdk.js"></script>
+
+<!--JW Player Provide JS Script -->
+<script type="text/javascript" src="/jwplayer/jwplayer.js"></script>
+
+<!--JW Player Provide JS Script Liscense-->								
+<script type="text/javascript" jwplayer.key="SikHSmmWD+3KrA2oirXXIrLHW0Tco1Ck9X2jWg=="></script>
+		
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="YGTV, Young Guns" />
+<meta name="description" content="Online Media Portal" />
+<meta name="author" content="Young Guns TV, LLC" />
+
+<!--Main CSS Style Sheet-->
+<link rel="stylesheet" type="text/css" href="css_style/main.css" />										
+
+</head>
+<body ng-controller="VideoController as videoplayer">
+
+<div class="header">																						
+Header
+</div>
+
+<div class="queue" ng-repeat="videoitems in videoplayer.videos">
+Queue: <br />
+{{videos.name}}
+</div>
+
+<div class="main">						
+
+Main
+														
+<div id="myElement">Loading the Player...</div>
+<script type="text/javascript">																
+    jwplayer("myElement").setup({
+        file: "http://s3.amazonaws.com/ygtv_videotest/Dianna_Video.mp4",
+        image: "http://s3.amazonaws.com/ygtv_videotest/jpg_test.jpg"
+    });
+</script>
+
+</div>	
+																			
+</body>
+</html>
