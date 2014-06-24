@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="videoPlayer">
+<html ng-app>
 <!--
 Video Test Homepage Index File V0.1.0
 Last Edit: 6-19-2014
@@ -10,7 +10,7 @@ Author: ME
 
 <!--Angular Calls-->
 <script type="text/javascript" src="angular.js"></script>
-<script type="text/javascript" src="videotest.js"></script>
+<script type="text/javascript" src="app/controller/videotest.js"></script>
 
 <!--AWS SDK Call-->
 <script type="text/javascrip" src="aws.sdk.js"></script>
@@ -30,15 +30,20 @@ Author: ME
 <link rel="stylesheet" type="text/css" href="css_style/main.css" />										
 
 </head>
-<body ng-controller="VideoController as videoplayer">
+<body ng-controller="VideoController">
 
 <div class="header">																						
 Header
 </div>
 
-<div class="queue" ng-repeat="videoitems in videoplayer.videos">
-Queue: <br />
-{{videos.name}}
+<div class="queue">
+Videos: <br />
+<div ng-repeat="vids in videos">
+<image src='{{vids.imagefull}}' height='100px'/><br />
+<a ng-click=doPlay(vids.url)>
+{{vids.name}}
+</a>
+</div>
 </div>
 
 <div class="main">						
@@ -48,11 +53,9 @@ Main
 <div id="myElement">Loading the Player...</div>
 <script type="text/javascript">																
     jwplayer("myElement").setup({
-        file: "http://s3.amazonaws.com/ygtv_videotest/Dianna_Video.mp4",
-        image: "http://s3.amazonaws.com/ygtv_videotest/jpg_test.jpg"
+        file: "{{videoPlaying}}",
     });
 </script>
-
 </div>	
 																			
 </body>
